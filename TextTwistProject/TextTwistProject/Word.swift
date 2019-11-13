@@ -1,5 +1,10 @@
 import Foundation
 
+enum CheckResult {
+    case correct
+    case incorrect
+}
+
 struct Word {
     let unscrambled: String
 
@@ -17,5 +22,13 @@ struct Word {
             Word(unscrambled: "jumped"),
             Word(unscrambled: "fixing")
         ].randomElement()!
+    }
+    
+    func WordCheck(input: String) -> CheckResult {
+        if input == unscrambled {
+            return .correct
+        } else {
+            return .incorrect
+        }
     }
 }
