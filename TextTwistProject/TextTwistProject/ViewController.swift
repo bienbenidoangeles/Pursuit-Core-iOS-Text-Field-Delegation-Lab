@@ -58,5 +58,21 @@ extension ViewController: UITextFieldDelegate {
         //textField.text = nil
         return true
     }
+    
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if guessWord.text?.contains(string) ?? false{
+            guessWord.text?.remove(at: (guessWord.text?.firstIndex(of: Character(string)))!)
+        } else if string == ""{
+            //print("Delete detected")
+            //guessWord.text?.insert(Character(string), at: guessWord.text!.endIndex)
+        } else {
+            //could change game label to state that
+            return false
+            //guessWord.text?.insert(Character(string), at: guessWord.text!.endIndex)
+        }
+        return true
+    }
 }
 
