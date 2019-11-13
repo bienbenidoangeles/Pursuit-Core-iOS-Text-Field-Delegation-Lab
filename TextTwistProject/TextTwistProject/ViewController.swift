@@ -58,7 +58,8 @@ extension ViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
                 
         if guessWord.text?.contains(string) ?? false{
-            guessWord.text?.remove(at: (guessWord.text?.firstIndex(of: Character(string)))!)
+            
+            guessWord.text?.remove(at: (guessWord.text?.firstIndex(of: Character(string))) ?? "".startIndex)
         } else if string == ""{
             guessWord.text?.insert(userInput.text?.last ?? "a", at: guessWord.text!.endIndex)
         } else {
